@@ -29,4 +29,43 @@ console.log("please enter a username")
     return`${username} just logged in`
 }
 
-console.log(loginUserMessage("hitesh")) // agar hitesh ki jagah par koi value na de to result undefined aayega 
+// console.log(loginUserMessage("hitesh")) // agar hitesh ki jagah par koi value na de to result undefined aayega 
+
+
+// rest and spread operator ko ... se represent kiya jata hai but usecase ke according usko rest ya spread bolte hai 
+function calculateCartPrice(val1,val2, ...num1){ // ye hai rest oprator matlab func me multiple value kiase pass hoti hai  and val1,val2 staring ke values hogi as by common sense 
+    return num1
+
+}
+
+// console.log(calculateCartPrice(1,2,3,4,5))
+
+
+// how to pass object in functions 
+
+const user = {
+    username :"hitesh",
+    price:34
+}
+
+function handleObject(anyObject){
+    console.log(`Username is ${anyObject.username} and price is ${anyObject.price}`)
+}
+
+// handleObject(user)
+handleObject({
+username:"rajababu",
+price:1
+})
+
+// how to handle arrays in functions 
+
+const myNewArray =[1,2,3,4,5]
+
+function returnsecondvalue(getArray){
+    console.log(getArray[2])
+}
+
+// returnsecondvalue(myNewArray)
+
+returnsecondvalue([1,2,3,4])
