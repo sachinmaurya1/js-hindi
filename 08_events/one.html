@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Html Events </title>
+</head>
+<body style="background: #414141; color: aliceblue;">
+    <h2>Amazing Image </h2>
+    <div?>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<!-- // js ke events mostly sequential run hote hai but jo events sequence me run nhi hote hum unki hi baat karne aaye  hai 
+// aaj hum browser ke events ko padne aaye hai  ye events kisi activity karne par invoke hote jaise ki mouse click karne par , keyboard press kiya   -->
+
+<script>
+ // es mthod me koi probloem nhi hai but ye humko feature km deta hai 
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked");
+    // }
+        // attachEvent()
+        //jQuery - on
+        // uper wale dono bhi same kam karte hai pahle use hote hai 
+    //this is best approch 
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log('click inside the ul')
+        //alert('click inside the ul ')
+
+    },false) // by default event bubbling hota hai es false ka matlab
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log('owl clicked')
+        //alert('click inside the ul ')
+
+    },false) // by default event bubbling hota hai es false ka matlab
+
+
+
+    // same chez bus yaha par dono ke end me true kiya hai 
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log('click inside the ul')
+        //alert('click inside the ul ')
+
+    },true) // event capturing hota hai es true ka matlab
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log('owl clicked')
+        //alert('click inside the ul ')
+
+    },true)
+
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log('owl clicked')
+        e.stopPropagation() // event ko bubble hone se rokta hai 
+        //alert('click inside the ul ')
+
+    },true)
+
+
+
+
+
+    // type,timeStamp,defaultPrevented
+    // target,toElement,srcElement,CurrentTarget,
+    //  clientX,clientY,screenY,screenX
+    // altKey,ctrlKey,shiftKey,KeyCode
+
+
+    document.getElementById('google').addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation() // ye function event ki bubbling ko rokta hai 
+        console.log('google clicked')
+    })
+
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName ==='IMG'){
+            console.log(e.target.id);
+
+            let removeIt = e.target.parentNode
+        removeIt.remove()
+        }
+        
+    })
+</script>
+</html>
