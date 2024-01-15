@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- // settimeout, setinterval, cleartimeout, clearintervel these are important  -->
+    <!-- <h1>chai aur code</h1> -->
+    <h2>saurabh bhai pite hai pepsi</h2>
+    <button id="stop"> Stop</button>
+</body>
+
+<script>
+    const sayHitesh = function(){
+        console.log('hitesh')
+
+    }
+
+    const changeText = function(){
+        document.querySelector('h2').innerHTML = "sorry guys saurabh bhai lagte hai sexy "
+        
+    }
+
+    const rajababu = function(){
+        document.querySelector('#stop').innerHTML = ""
+    }
+    setTimeout(rajababu, 4000)
+     const rama = setTimeout(changeText, 4000)
+
+    document.querySelector('#stop').addEventListener('click', function(){
+clearTimeout(rama)
+console.log('stopped')
+    })
+</script>
+</html>
